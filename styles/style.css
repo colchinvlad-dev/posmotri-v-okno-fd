@@ -8,20 +8,20 @@
 /* Настройка высоты html на всю высоту окна */
 html {
   block-size: 100%;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  color: #fff;
 }
 
-/* Основные стили страницы */
 .page {
-  inline-size: 1200px; /* Фиксированная ширина страницы */
-  block-size: 100%; /* Высота на весь экран */
-  margin: auto; /* Центрирование по горизонтали */
-  color: #fff; /* Белый цвет текста */
-  font-family: 'Fira Sans Condensed', sans-serif; /* Основной шрифт */
-  font-size: 18px; /* Размер шрифта */
-  background-color: #1b1919; /* Темный фон */
-  display: flex; /* Flexbox для центрирования контента */
-  justify-content: center; /* Горизонтальное центрирование */
-  align-items: center; /* Вертикальное центрирование */
+  inline-size: 1200px;
+  block-size: 100%;
+  margin: auto;
+  background-color: #1b1919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* font-family, font-size, color наследуются от html */
 }
 
 /* Сброс отступов для основных элементов */
@@ -101,8 +101,8 @@ ol {
 
 /* Заголовок поля формы */
 .search-form__fieldset-title {
-  font-family: 'Fira Sans Condensed', sans-serif; /* Наследование шрифта */
-  font-size: 18px; /* Размер шрифта */
+   font-family: inherit; /* Вместо явного указания 'Fira Sans Condensed' */
+  font-size: inherit; /* Вместо 18px */
   font-weight: 400; /* Обычное начертание */
   line-height: normal; /* Стандартная высота строки */
 }
@@ -140,9 +140,9 @@ ol {
   border: none; /* Удаление стандартной рамки */
   border-top: 1px solid #fff; /* Верхняя граница */
   border-bottom: 1px solid #fff; /* Нижняя граница */
-  color: #fff; /* Белый цвет текста */
-  font-family: inherit; /* Наследование шрифта */
-  font-size: 18px; /* Размер шрифта */
+  color: inherit; /* Наследуем цвет текста */
+  font-family: inherit; /* Наследуем шрифт */
+  font-size: inherit; /* Наследуем размер */
   padding: 2.5px 0; /* Внутренние отступы */
   width: 225px; /* Фиксированная ширина */
 }
@@ -186,10 +186,10 @@ ol {
 /* Базовые стили для всех кнопок */
 .button {
   background: transparent; /* Прозрачный фон */
-  border: 1px solid #fff; /* Белая рамка */
-  color: #fff; /* Белый текст */
-  font-family: 'Fira Sans Condensed', sans-serif; /* Шрифт */
-  font-size: 18px; /* Размер шрифта */
+  border: 1px solid currentColor; /* Рамка наследует цвет текста */
+  color: inherit; /* Наследуем цвет текста */
+  font-family: inherit; /* Наследуем от родителя */
+  font-size: inherit; /* Наследуем от родителя */
   font-weight: 700; /* Жирное начертание */
   text-align: center; /* Выравнивание по центру */
   cursor: pointer; /* Указатель при наведении */
@@ -204,6 +204,7 @@ ol {
 /* Эффект при нажатии на кнопку */
 .button:active {
   background: #545050; /* Темно-серый фон */
+  color: #fff; /* Сохраняем белый текст */
 }
 
 /* Удаление стандартного outline */
@@ -227,7 +228,6 @@ ol {
 /* Стили для правой секции с деталями */
 .content__details {
   flex: 1; /* Занимает доступное пространство */
-  height: 534px; /* Фиксированная высота */
   display: flex; /* Flexbox для внутреннего расположения */
   flex-direction: column; /* Вертикальное расположение */
   gap: 26px; /* Расстояние между элементами */
@@ -314,28 +314,30 @@ ol {
 
 /* Контейнер для описания видео */
 .content__video-card-description-container {
-  flex-grow: 1; /* Занимает доступное пространство */
-  padding: 2px 0; /* Вертикальные отступы */
+  flex-grow: 1;
+  padding: 2px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px; /* Заменяем margin-bottom на gap */
 }
 
 /* Заголовок карточки видео */
 .content__video-card-title {
-  font-family: Oswald, sans-serif; /* Шрифт Oswald */
-  font-size: 30px; /* Размер шрифта */
-  font-weight: 700; /* Жирное начертание */
-  line-height: 100%; /* Высота строки */
-  text-transform: uppercase; /* Все буквы заглавные */
-  margin-bottom: 6px; /* Отступ снизу */
-  overflow: hidden; /* Скрытие переполнения */
-  text-overflow: ellipsis; /* Многоточие при переполнении */
-  white-space: nowrap; /* Запрет переноса текста */
-  margin-top: -4px; /* Добавляем отрицательный отступ сверху */
+  font-family: Oswald, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 100%;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* margin-bottom удален - заменен на gap в родителе */
 }
 
 /* Описание видео */
 .content__video-card-description {
-  font-family: 'Fira Sans Condensed', sans-serif; /* Основной шрифт */
-  font-size: 18px; /* Размер шрифта */
+  font-family: inherit; /* Наследуем основной шрифт */
+  font-size: inherit; /* Наследуем основной размер */
   font-weight: 400; /* Обычное начертание */
   line-height: 16.2px; /* Высота строки */
   overflow: hidden; /* Скрытие переполнения */
